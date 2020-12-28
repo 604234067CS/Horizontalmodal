@@ -71,6 +71,7 @@
                     </div><!-- /.modal -->
                 </div>
             </div>
+
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
@@ -88,27 +89,49 @@
             <!-- end page title end breadcrumb -->
 
 
-            <div class="ligthbox">
+
+            <div class="row">
                 <?php
                 // Include the database configuration file 
                 require 'ConnectData/pages-gallery-connectdb.php';
                 // Get files from the database 
-                $query = "SELECT * FROM files ORDER BY id DESC";
+                $query = "SELECT * FROM files ORDER BY id ,uploaded_on DESC";
                 $insert = mysqli_query($conn, $query);
                 if ($insert->num_rows > 0) {
                     while ($row = $insert->fetch_assoc()) {
                         $filePath = 'public/assets/images/gallery/' . $row["file_name"];
+                        $timedata = $row["uploaded_on"];
                         $fileMime = mime_content_type($filePath);
                 ?>
-                        <embed src="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" width="350px" height="240px" />
-                    <?php }
+                        <div class="col-md-3">
+                            <a href="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" class="gallery-popup" title="Open Imagination">
+                                <div class="project-item">
+                                    <div class="overlay-container">
+                                        <img src="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" alt="img" class="gallery-thumb-img">
+                                        <div class="project-item-overlay">
+                                            <h4>fileName</h4>
+                                            <p>
+                                                <img src="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" alt="user" class="thumb-sm rounded-circle" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="'ConnectData/pages-gallery-delete.php?=delete$file_name=<?php echo $row['file_name'] ?>">Remove</a>
+                            <br>
+                            <?php
+                            echo "$timedata ";
+                            ?>
+                        </div>
+                    <?php
+                    }
                 } else { ?>
-                    <p>No file(s) found...</p>
+                    <p>No files found...</p>
                 <?php } ?>
             </div>
-        </div> <!-- end container -->
-    </div>
-    <!-- end wrapper -->
+
+        </div><!-- end container -->
+    </div> <!-- end wrapper -->
 
     <?php include 'layouts/footer.php'; ?>
 
@@ -144,6 +167,8 @@
             });
         });
     </script>
+
+
 
     <script type="text/javascript">
         $('.gallery-popup').magnificPopup({

@@ -56,5 +56,3 @@ exit;
 //           //mysql_query($insert);
 //       }
 //     }
-
-?>

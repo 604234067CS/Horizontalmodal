@@ -489,14 +489,14 @@
                             </div>
                             <div class="card m-b-20">
                                 <img class="card-img-top img-fluid" src="public/assets/images/small/img-2.jpg" alt="Card image cap">
-                                <div class="card-body">
+                                <    class="card-body">
                                     <h4 class="card-title font-20 mt-0">Card title</h4>
                                     <p class="card-text">This card has supporting text below as a natural
                                         lead-in to additional content.</p>
                                     <p class="card-text">
                                         <small class="text-muted">Last updated 3 mins ago</small>
                                     </p>
-                                </div>
+                                </>
                             </div>
                             <div class="card m-b-20">
                                 <img class="card-img-top img-fluid" src="public/assets/images/small/img-3.jpg" alt="Card image cap">
