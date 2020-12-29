@@ -137,15 +137,25 @@
                     </li>
 
                     <li>
-                        <a href="Home.php">Home</a>
+                        <a href="pages-home.php">Home</a>
                     </li>
 
                     <li>
                         <a href="pages-gallery.php">Gallery</a>
                     </li>
 
-                    <li>
-                        <a href="Product.php">Product</a>
+                    <li class="has-submenu">
+                        <a href="#"><i class="mdi mdi-buffer"></i>product</a>
+                        <ul class="submenu megamenu">
+                            <li>
+                                <ul>
+                                    <li><a href="pages-product1.php">product-type1</a></li>
+                                    <li><a href="pages-product2.php">product-type2</a></li>
+                                    <li><a href="pages-product3.php">product-type3</a></li>
+                                    <li><a href="pages-product4.php">product-type4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                     
 
