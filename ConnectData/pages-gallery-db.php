@@ -23,14 +23,16 @@ require_once('pages-gallery-connectdb.php');
         if(move_uploaded_file($_FILES['file_name']['tmp_name'], $target_file)){
         //$date_n = date('Y-m-d');
         //$hour = date('H:i:s');
-        $sql = "INSERT INTO files (file_name, uploaded_on) VALUES ('".$new_name."', NOW())"; 
+        $sql = "INSERT INTO db_files (file_name, uploaded_on) VALUES ('".$new_name."', NOW())"; 
         $insert = mysqli_query($conn, $sql);
+        header('Location: ../pages-gallery.php?product=success');
             //mysql_query($insert);
         }else{
             $msg = 'Error while uploading.';
         }
 echo $msg;
 exit;
+
 // $msg = '';
 
 // srand((double)microtime()*10000000);
@@ -56,3 +58,4 @@ exit;
 //           //mysql_query($insert);
 //       }
 //     }
+?>

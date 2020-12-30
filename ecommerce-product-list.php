@@ -416,7 +416,7 @@
 
         <!-- App js -->
         <script src="public/assets/js/app.js"></script>
-
+        
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#datatable').DataTable();

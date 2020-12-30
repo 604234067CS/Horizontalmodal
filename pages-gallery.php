@@ -33,6 +33,7 @@
 
             <div class="row">
                 <div class="col-md-4 m-t-30">
+
                     <div class="text-center">
                         <!-- Large modal -->
                         <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-lg">Click Upload</button>
@@ -58,8 +59,8 @@
                                                         </form>
                                                     </div>
                                                     <div class="text-center m-t-15">
-                                                        <input type="submit" id="startUpload" name="button" class="btn btn-primary waves-effect waves-light" value="Upload">
-                                                        <input type="button" class="btn btn-primary waves-effect waves-light" data-dismiss="modal" value="CLOSE" onClick="javascript:location.reload();">
+                                                        <button type="submit" id="startUpload" name="button" class="btn btn-primary waves-effect waves-light" href="pages-gallery.php">Upload</button>
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light" data-dismiss="modal"onClick="javascript:location.reload();">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,7 +69,8 @@
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+                    </div> <!-- /.modal -->
+
                 </div>
             </div>
 
@@ -95,7 +97,7 @@
                 // Include the database configuration file 
                 require 'ConnectData/pages-gallery-connectdb.php';
                 // Get files from the database 
-                $query = "SELECT * FROM files ORDER BY id ,uploaded_on DESC";
+                $query = "SELECT * FROM db_files ORDER BY id ,uploaded_on DESC";
                 $insert = mysqli_query($conn, $query);
                 if ($insert->num_rows > 0) {
                     while ($row = $insert->fetch_assoc()) {
@@ -109,7 +111,6 @@
                                     <div class="overlay-container">
                                         <img src="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" alt="img" class="gallery-thumb-img">
                                         <div class="project-item-overlay">
-                                            <h4>fileName</h4>
                                             <p>
                                                 <img src="<?php echo $filePath; ?>" type="<?php echo $fileMime; ?>" alt="user" class="thumb-sm rounded-circle" />
                                             </p>
